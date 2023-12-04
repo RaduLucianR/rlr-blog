@@ -13,7 +13,7 @@ author:
   email:             radlucradulescu@gmail.com
 
 # Color scheme. Options: red, orange, magenta, cyan, blue, brown
-color-scheme:
+color-scheme: blue
 
 # Permalinks
 permalink: pretty
