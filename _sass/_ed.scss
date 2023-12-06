@@ -224,12 +224,12 @@ tbody tr:nth-child(odd) th {
 .masthead-title {
   font-family: $main-font;
   font-weight: normal;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 
   a {
-    color: #0f52ba;
+    color: #016bb1;
     text-decoration: none;
   }
 }
@@ -748,13 +748,13 @@ li.prose-indent {
 .theme-base-cyan .container a,
 .theme-base-cyan .sidebar-toggle,
 .theme-base-cyan .related-posts li a:hover {
-  color: #008ae6;
+  color: #016bb1;
 }
 
 /* Blue */
 .theme-base-blue .sidebar,
 .theme-base-blue .sidebar-toggle:active {
-  background-color: #008ae6;
+  background-color: #016bb1;
 }
 
 .theme-base-blue .container a,

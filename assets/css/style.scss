@@ -10,7 +10,7 @@ sitemap: false
 */
 
 /* Fonts */
-$main-font: "Times New Roman";
+$main-font: "SourceSerif", "Times New Roman", serif;
 $heading-font: sans-serif;
 $regular-font-size: 1.25em; /* 20px / 16px = 1.25em; support text resizing in all browsers */
 
@@ -23,7 +23,7 @@ $regular-font-size: 1.25em; /* 20px / 16px = 1.25em; support text resizing in al
 
 $text-color: #454545;
 $heading-color: #404040;
-$link-color: #008ae6;
+$link-color: #016bb1;
 
 @import "ed";
 @import "syntax";
