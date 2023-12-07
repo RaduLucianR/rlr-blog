@@ -7,15 +7,19 @@ title: "Radu Lucian Radulescu"
 </div> -->
 
 <div class="toc">
-  <!-- <h2>sample texts</h2> -->
-  <ul class="texts">
-  {% for item in site.texts %}
-
-    <li class="text-title">
-      <a href="{{ site.baseurl }}{{ item.url }}">
-        {{ item.title }}
-      </a>
-    </li>
-  {% endfor %}
-  </ul>
+  <div class="post-list"> 
+    {% for item in site.texts %}
+        <article class="post-item">
+          <div class="post-info">
+            <h3 class="title-text">
+              <a href="{{ site.baseurl }}{{ item.url }}">
+                {{ item.title }}
+              </a>
+            </h3>
+            <time class="post-date" datetime="{{item.date}}">{{ item.date | date: "%B %e, %Y" }}</time>
+          </div>
+          <p class="post-excerpt">{{ item.custom_excerpt }}</p>
+        </article>
+    {% endfor %}
+  </div>
 </div>

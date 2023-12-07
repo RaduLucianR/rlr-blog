@@ -694,6 +694,51 @@ li.prose-indent {
   text-indent: 2rem;
 }
 
+/* Posts */
+.post-item {
+  padding: 10px 0;
+}
+
+.post-item:not(:last-child) {
+  border-bottom: 1px solid var(--hr-color);
+}
+
+.post-list {
+  h2,
+  h3 {
+    font-family: $main-font;
+  }
+
+  h3.title-text {
+    margin: 0 20px 0 0;
+    display: inline;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.post-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.post-date {
+  font-family: $main-font-sans;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+}
+
+.post-excerpt {
+  font-family: $main-font;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 0;
+}
+
 
 /*
   Themes
