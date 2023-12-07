@@ -12,10 +12,8 @@
 */
 
 /*
-  To apply a different color scheme to the whole scroll down to the themes section instructions at
-  the very bottom of this file
+  To apply a different color scheme to the whole scroll down to the themes section for instructions
 */
-
 
 /*
   General
@@ -25,40 +23,32 @@
 
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html,
-body {
+html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-html {
-  font-family: $main-font;
-  font-size: 1em; /* 16px; specify in ems to support text resizing in all browsers */
-  line-height: 1.5;
-}
-
-@media (min-width: 38em) {
-  html {
-    font-size: $regular-font-size;
-  }
-}
-
 body {
-  color: $text-color;
-  background-color: #fff;
+  font-family: var(--serif-fonts);
+  color: var(--main-text-color);
+  background-color: var(--bg-color);
   -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  margin: 0;
 }
 
 .content {
   margin-bottom: 4rem;
 }
 
+*:target {
+  background-color: var(--highlight-background-color);
+}
 
 /*
   Wrapper
@@ -72,7 +62,6 @@ body {
   width: 100%;
 }
 
-
 /*
   Container
 
@@ -83,104 +72,122 @@ body {
   max-width: 700px;
   max-width: 35rem;
   max-width: 70ch;
-  padding-left:  1rem;
+  padding-left: 1rem;
   padding-right: 1rem;
-  margin-left:  auto;
+  margin-left: auto;
   margin-right: auto;
 }
 
-@media (min-width: 56em) {
-  .container {
-    max-width: 38rem;
-  }
-}
-
-/* Links */
-a, .text-title a {
-  color: $link-color;
-  text-decoration: none;
-}
-
-/* `:focus` is linked to `:hover` for basic accessibility */
-a:hover,
-a:focus {
+/* Links*/
+a,
+.text-title a {
+  color: var(--main-text-color);
   text-decoration: underline;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: $main-font-sans;
-  margin-bottom: .5rem;
+/* `:focus` is linked to `:hover` for basic accessibility*/
+a:hover,
+a:focus {
+  color: var(--link-text-hover-color);
+  text-decoration: underline;
+}
+
+/* Headings*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--sans-serif-fonts);
+  margin-bottom: 0.5rem;
   font-weight: 600;
-  color: $heading-color;
-  letter-spacing: -.025rem;
+  letter-spacing: -0.025rem;
   line-height: 1.25;
   text-rendering: optimizeLegibility;
 }
 
-h1,
-h1.text-title {
-  font-size: 1.4rem;
-}
-
 h2 {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-}
-
-h3, h4, h5, h6 {
-  margin-top: 1rem;
-  font-size: 1.3rem;
+  margin-top: 2rem;
 }
 
 h3 {
   margin-top: 1.5rem;
 }
 
+h4,
+h5,
+h6 {
+  margin-top: 1rem;
+}
 
-/* Body text */
+/* Body text*/
 p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-/* Lists */
+/* Lists*/
 ul {
   list-style: circle;
 }
 
-ul, ol {
+ul,
+ol {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-/* Search highlighting */
-mark {
-  color: white;
-  background-color: $link-color;
+li {
+  margin-bottom: 0.5rem;
 }
 
-/* Quotes */
+/* Quotes*/
 blockquote {
-  padding: 0rem 1.5rem 0rem 2rem;
-  margin: 0 0 20px 0;
-  color: $text-color;
-  border-left: none;
+  padding: 0rem 2rem 0 3rem;
+  margin: 2rem 0;
+  position: relative;
   font-style: italic;
+  color: var(--main-text-color);
+  border-left: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    font-size: 3rem;
+    font-style: normal;
+    color: var(--blockquote-quote-color);
+  }
+
+  &::before {
+    content: "\201C";
+    left: 0.5rem;
+  }
+
+  &::after {
+    content: "\201D";
+    right: 0.5rem;
+  }
+
+  i {
+    font-style: normal;
+  }
+}
+
+.excerpts blockquote {
+  font-style: normal;
+
+  &:before,
+  &:after {
+    content: none;
+  }
 }
 
 blockquote p:last-child {
   margin-bottom: 0;
 }
 
-@media (min-width: 30em) {
-  blockquote {
-    padding-right: 5rem;
-    padding-left: 1.25rem;
-  }
-}
-
-/* Images */
+/* Images*/
 img {
   display: block;
   max-width: 100%;
@@ -188,25 +195,19 @@ img {
   border-radius: 5px;
 }
 
-/* Tables */
+/* Tables*/
 table {
   margin-bottom: 1rem;
   width: 100%;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--table-border-color);
   border-collapse: collapse;
 }
 
 td,
 th {
-  padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--table-border-color);
 }
-
-tbody tr:nth-child(odd) td,
-tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
-}
-
 
 /*
   Masthead
@@ -216,31 +217,36 @@ tbody tr:nth-child(odd) th {
 
 .masthead {
   margin-bottom: 3rem;
+  text-align: center;
   padding-top: 26px;
   padding-bottom: 1rem;
-  text-align: center;
 }
 
 .masthead-title {
-  font-family: $main-font;
+  font-family: var(--serif-fonts);
   font-weight: normal;
-  font-size: 1.6rem;
+  color: var(--accent-color-purple);
+  font-size: 2rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 
   a {
-    color: #016bb1;
+    color: var(--accent-color-purple);
     text-decoration: none;
   }
 }
 
-.masthead-title small {
-  color: $text-color;
-  display: none; /* This is an accessibility no-no */
-  font-family: $heading-font;
-  font-size: .88rem;
-  font-weight: normal;
-  letter-spacing: .05rem;
+.byline {
+  font-size: 1.25rem;
+}
+
+/* Page and Posts*/
+.page {
+  margin-bottom: 4em;
+}
+
+.page-title {
+  margin-top: 0;
 }
 
 /*
@@ -257,7 +263,7 @@ tbody tr:nth-child(odd) th {
   Source: http://css-tricks.com/off-canvas-menu-with-css-target/#comment-207504
 */
 
-/* Style and "hide" the sidebar */
+/* Style and "hide" the sidebar*/
 .sidebar {
   position: fixed;
   top: 0;
@@ -266,59 +272,37 @@ tbody tr:nth-child(odd) th {
   width: 14rem;
   visibility: hidden;
   overflow-y: auto;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: .875rem;/* 15px*/
-  color: rgba(255,255,255,.6);
-  background-color: #202020;
-  -webkit-transition: all .3s ease-in-out;
-          transition: all .3s ease-in-out;
+  font-size: 1rem;
+  font-family: var(--serif-fonts);
+  color: var(--main-text-color);
+  border-right: 1px solid var(--hr-color);
+  background-color: var(--bg-color);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-@media (min-width: 30em) {
-  .sidebar {
-    font-size: .75rem;/* 14px */
-  }
-}
-
-/* Sidebar content */
-.sidebar {
-  background-color: $link-color;
-}
-
+/* Sidebar content*/
 .sidebar a {
   font-weight: normal;
-  color: #fff;
+  color: var(--main-text-color);
 }
 
 .sidebar-item {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .sidebar-item p:last-child {
   margin-bottom: 0;
 }
 
-/* Sidebar nav */
+/* Sidebar nav*/
 .sidebar-nav {
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  margin-top: 1rem;
 }
 
 .sidebar-nav-item {
   display: block;
-  padding: .5rem 1rem;
-  border-top: 1px solid rgba(255,255,255,.1);
-}
-
-a.sidebar-nav-item-toc {
-  color: rgba(255,255,255,.8);
-}
-
-.sidebar-nav-item.active,
-a.sidebar-nav-item:hover,
-a.sidebar-nav-item:focus {
-  text-decoration: none;
-  background-color: rgba(255,255,255,.1);
-  border-color: transparent;
+  padding: 0.5rem 1rem;
 }
 
 @media (min-width: 48em) {
@@ -327,59 +311,148 @@ a.sidebar-nav-item:focus {
   }
 
   .sidebar-nav-item {
-    padding-left:  1.5rem;
+    padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 }
 
-/* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
+/* Hide the sidebar checkbox that we toggle with `.sidebar-toggle`*/
 .sidebar-checkbox {
   display: none;
 }
 
-/* Style the `label` that we use to target the `.sidebar-checkbox` */
+/* Style the `label` that we use to target the `.sidebar-checkbox`*/
 .sidebar-toggle {
   position: absolute;
-  top:  .8rem;
+  top: 0.8rem;
   left: 1rem;
   display: block;
-  padding: .25rem .75rem;
-  color: #505050;
-  background-color: #fff;
-  border-radius: .25rem;
-  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
   cursor: pointer;
 }
 
 .sidebar-toggle:before {
   display: inline-block;
   width: 1rem;
-  height: .75rem;
+  height: 0.75rem;
   content: "";
-  background-image: -webkit-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-  background-image:    -moz-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-  background-image:     -ms-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-  background-image:         linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-}
-
-.sidebar-toggle:focus {
-  border: solid #555 1px;
+  background-image: -webkit-linear-gradient(
+    to bottom,
+    var(--main-text-color),
+    var(--main-text-color) 20%,
+    var(--bg-color) 20%,
+    var(--bg-color) 40%,
+    var(--main-text-color) 40%,
+    var(--main-text-color) 60%,
+    var(--bg-color) 60%,
+    var(--bg-color) 80%,
+    var(--main-text-color) 80%,
+    var(--main-text-color) 100%
+  );
+  background-image: -moz-linear-gradient(
+    to bottom,
+    var(--main-text-color),
+    var(--main-text-color) 20%,
+    var(--bg-color) 20%,
+    var(--bg-color) 40%,
+    var(--main-text-color) 40%,
+    var(--main-text-color) 60%,
+    var(--bg-color) 60%,
+    var(--bg-color) 80%,
+    var(--main-text-color) 80%,
+    var(--main-text-color) 100%
+  );
+  background-image: -ms-linear-gradient(
+    to bottom,
+    var(--main-text-color),
+    var(--main-text-color) 20%,
+    var(--bg-color) 20%,
+    var(--bg-color) 40%,
+    var(--main-text-color) 40%,
+    var(--main-text-color) 60%,
+    var(--bg-color) 60%,
+    var(--bg-color) 80%,
+    var(--main-text-color) 80%,
+    var(--main-text-color) 100%
+  );
+  background-image: linear-gradient(
+    to bottom,
+    var(--main-text-color),
+    var(--main-text-color) 20%,
+    var(--bg-color) 20%,
+    var(--bg-color) 40%,
+    var(--main-text-color) 40%,
+    var(--main-text-color) 60%,
+    var(--bg-color) 60%,
+    var(--bg-color) 80%,
+    var(--main-text-color) 80%,
+    var(--main-text-color) 100%
+  );
 }
 
 .sidebar-toggle:active,
 #sidebar-checkbox:focus ~ .sidebar-toggle,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
-  color: #fff;
-  background-color: #555;
+  color: var(--bg-color);
+  background-color: var(--main-text-color);
 }
 
 .sidebar-toggle:active:before,
 #sidebar-checkbox:focus ~ .sidebar-toggle:before,
 #sidebar-checkbox:checked ~ .sidebar-toggle:before {
-  background-image: -webkit-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-  background-image:    -moz-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-  background-image:     -ms-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-  background-image:         linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
+  background-image: -webkit-linear-gradient(
+    to bottom,
+    var(--bg-color),
+    var(--bg-color) 20%,
+    var(--main-text-color) 20%,
+    var(--main-text-color) 40%,
+    var(--bg-color) 40%,
+    var(--bg-color) 60%,
+    var(--main-text-color) 60%,
+    var(--main-text-color) 80%,
+    var(--bg-color) 80%,
+    var(--bg-color) 100%
+  );
+  background-image: -moz-linear-gradient(
+    to bottom,
+    var(--bg-color),
+    var(--bg-color) 20%,
+    var(--main-text-color) 20%,
+    var(--main-text-color) 40%,
+    var(--bg-color) 40%,
+    var(--bg-color) 60%,
+    var(--main-text-color) 60%,
+    var(--main-text-color) 80%,
+    var(--bg-color) 80%,
+    var(--bg-color) 100%
+  );
+  background-image: -ms-linear-gradient(
+    to bottom,
+    var(--bg-color),
+    var(--bg-color) 20%,
+    var(--main-text-color) 20%,
+    var(--main-text-color) 40%,
+    var(--bg-color) 40%,
+    var(--bg-color) 60%,
+    var(--main-text-color) 60%,
+    var(--main-text-color) 80%,
+    var(--bg-color) 80%,
+    var(--bg-color) 100%
+  );
+  background-image: linear-gradient(
+    to bottom,
+    var(--bg-color),
+    var(--bg-color) 20%,
+    var(--main-text-color) 20%,
+    var(--main-text-color) 40%,
+    var(--bg-color) 40%,
+    var(--bg-color) 60%,
+    var(--main-text-color) 60%,
+    var(--main-text-color) 80%,
+    var(--bg-color) 80%,
+    var(--bg-color) 100%
+  );
 }
 
 @media (min-width: 30.1em) {
@@ -394,14 +467,13 @@ a.sidebar-nav-item:focus {
   }
 }
 
-
 /*
   Slide effect
 
-  Handle the sliding effects of the sidebar and content in one spot, separate from the default
+  Handle the sliding effects of the sidebar and content in one spot, seperate from the default
   styles.
 
-  As a heads-up, we don't use `transform: translate3d()` here because, when mixed with
+  As an a heads up, we don't use `transform: translate3d()` here because when mixed with
   `position: fixed;` for the sidebar toggle, it creates a new containing block. Put simply, the
   fixed sidebar toggle behaves like `position: absolute;` when transformed.
 
@@ -412,14 +484,14 @@ a.sidebar-nav-item:focus {
 .sidebar,
 .sidebar-toggle {
   -webkit-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-          backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .wrap,
 .sidebar-toggle {
-  -webkit-transition: -webkit-transform .3s ease-in-out;
-          transition: transform .3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 #sidebar-checkbox:checked + .sidebar {
@@ -431,15 +503,15 @@ a.sidebar-nav-item:focus {
 #sidebar-checkbox:checked ~ .wrap,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
   -webkit-transform: translateX(14rem);
-      -ms-transform: translateX(14rem);
-          transform: translateX(14rem);
+  -ms-transform: translateX(14rem);
+  transform: translateX(14rem);
 }
-
 
 /*
   Reverse layout
 
-  Flip the orientation of the page by placing the `.sidebar` and sidebar toggle on the right side.
+  Flip the orientation of the page by placing the `.sidebar` and sidebar toggle
+  on the right side.
 */
 
 .layout-reverse .sidebar {
@@ -456,39 +528,117 @@ a.sidebar-nav-item:focus {
 .layout-reverse #sidebar-checkbox:checked ~ .wrap,
 .layout-reverse #sidebar-checkbox:checked ~ .sidebar-toggle {
   -webkit-transform: translateX(-14rem);
-      -ms-transform: translateX(-14rem);
-          transform: translateX(-14rem);
+  -ms-transform: translateX(-14rem);
+  transform: translateX(-14rem);
 }
-
 
 /*
   Overlay sidebar
 
-  Make the sidebar content overlay the viewport content instead of pushing it aside when toggled.
+  Make the sidebar content overlay the viewport content instead of pushing it
+  aside when toggled.
 */
 
 .sidebar-overlay #sidebar-checkbox:checked ~ .wrap {
   -webkit-transform: translateX(0);
-      -ms-transform: translateX(0);
-          transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
 }
-
-.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar-toggle {
-  box-shadow: 0 0 0 .25rem #fff;
-}
-
-.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-  box-shadow: .25rem 0 .5rem rgba(0,0,0,.1);
-}
-
-/* Only one tweak for a reverse layout*/
-.layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-  box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
-}
-
 
 /*
- ED special layouts
+  Themes
+
+  Applies custom color schemes by adding the appropriate class to the `body`. Based on colors from
+  Base16: http://chriskempson.github.io/base16/#default.
+*/
+
+/* Red*/
+.theme-base-red .sidebar,
+.theme-base-red .sidebar-toggle:active,
+.theme-base-red #sidebar-checkbox:checked ~ .sidebar-toggle {
+  background-color: #ac4142;
+}
+
+.theme-base-red .container a,
+.theme-base-red .sidebar-toggle,
+.theme-base-red .related-posts li a:hover {
+  color: #ac4142;
+}
+
+/* Orange*/
+.theme-base-orange .sidebar,
+.theme-base-orange .sidebar-toggle:active {
+  background-color: #d28445;
+}
+
+.theme-base-orange .container a,
+.theme-base-orange .sidebar-toggle,
+.theme-base-orange .related-posts li a:hover {
+  color: #d28445;
+}
+
+/* Green*/
+.theme-base-green .sidebar,
+.theme-base-green .sidebar-toggle:active {
+  background-color: #90a959;
+}
+
+.theme-base-green .container a,
+.theme-base-green .sidebar-toggle,
+.theme-base-green .related-posts li a:hover {
+  color: #90a959;
+}
+
+/* Cyan*/
+.theme-base-cyan .sidebar,
+.theme-base-cyan .sidebar-toggle:active {
+  background-color: #75b5aa;
+}
+
+.theme-base-cyan .container a,
+.theme-base-cyan .sidebar-toggle,
+.theme-base-cyan .related-posts li a:hover {
+  color: #75b5aa;
+}
+
+/* Blue*/
+.theme-base-blue .sidebar,
+.theme-base-blue .sidebar-toggle:active {
+  background-color: #6a9fb5;
+}
+
+.theme-base-blue .container a,
+.theme-base-blue .sidebar-toggle,
+.theme-base-blue .related-posts li a:hover {
+  color: #6a9fb5;
+}
+
+/* Magenta*/
+.theme-base-magenta .sidebar,
+.theme-base-magenta .sidebar-toggle:active {
+  background-color: #aa759f;
+}
+
+.theme-base-magenta .container a,
+.theme-base-magenta .sidebar-toggle,
+.theme-base-magenta .related-posts li a:hover {
+  color: #aa759f;
+}
+
+/* Brown*/
+.theme-base-brown .sidebar,
+.theme-base-brown .sidebar-toggle:active {
+  background-color: #8f5536;
+}
+
+.theme-base-brown .container a,
+.theme-base-brown .sidebar-toggle,
+.theme-base-brown .related-posts li a:hover {
+  color: #8f5536;
+}
+
+/*
+ ED SPECIAL LAYOUTS
 */
 
 p.centered {
@@ -500,7 +650,7 @@ p.larger {
 }
 
 p.large {
-  font-size: 1.4rem
+  font-size: 1.4rem;
 }
 
 p.small {
@@ -508,16 +658,13 @@ p.small {
 }
 
 div.poem,
-.poem,
-div.narrative,
-.narrative {
+div.narrative {
   margin-bottom: 5rem;
 }
 
 div.toc {
   margin-bottom: 4rem;
 }
-
 
 /*
   Poem styles
@@ -526,7 +673,6 @@ div.toc {
   want you want to remove the hanging indent, reset the padding-left to 0 and erase text-indent
 */
 
-.poem ul,
 .poetry ul,
 ul.poetry {
   list-style: none;
@@ -535,68 +681,67 @@ ul.poetry {
   text-indent: -1rem;
 }
 
-
-/* This snippet helps us reset the margin for all spans with the indent- class */
-.poem span[class^='indent-'],
-.poetry span[class^='indent-'] {
-  margin: 0;/* reset browsers default margin styles*/
+/* This snippet helps us reset the margin for all spans with the indent- class*/
+.poetry span[class^="indent-"] {
+  margin: 0; /* reset browsers default margin styles*/
 }
 
-
 /*
-  To set line indentation for poetry wrap the line in a span with a class="indent-x" attribute.
-  The x is represents a rem (root em) value
+  To set line indentation for poetry wrap the line in a span, with a class="indent-x" attribute.
+  The x is represents an rem (root em) value
 */
 
 .indent-1 {
+  font-style: normal;
   padding-left: 1rem;
 }
 
 .indent-2 {
+  font-style: normal;
   padding-left: 2rem;
 }
 
 .indent-3 {
+  font-style: normal;
   padding-left: 3rem;
 }
 
 .indent-4 {
+  font-style: normal;
   padding-left: 4rem;
 }
 
 .indent-5 {
+  font-style: normal;
   padding-left: 5rem;
 }
 
 .indent-6 {
+  font-style: normal;
   padding-left: 6rem;
 }
 
 .indent-7 {
+  font-style: normal;
   padding-left: 7rem;
 }
 
 .indent-8 {
+  font-style: normal;
   padding-left: 8rem;
 }
 
 .indent-9 {
+  font-style: normal;
   padding-left: 9rem;
 }
 
 .indent-10 {
+  font-style: normal;
   padding-left: 10rem;
 }
 
-.poem .byline,
-.poetry .byline {
-  font-style: italic;
-  font-weight: normal;
-  letter-spacing: 0;
-  margin-top: -.5rem;
-}
-
-/* Footnotes styles */
+/* Footnotes styles*/
 sub,
 sup {
   font-size: 75%;
@@ -611,47 +756,42 @@ sup {
 
 .footnotes {
   line-height: 1.2rem;
-  font-size: 0.9rem;
-  letter-spacing: .01rem;
+  font-size: 1rem;
 }
 
 .footnotes .foot-block {
   display: inline-block;
   padding: 0 4rem 0 2rem;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
   font-style: italic;
 }
 
 a.footnote {
-  padding-left: .1rem;
-  font-size: .66rem;
+  padding-left: 0.1rem;
+  font-size: 0.8rem;
 }
 
-/*Bibliography styles */
+/*Bibliography styles*/
 ol.bibliography {
-  list-style-type:none;
+  list-style-type: none;
   padding-left: 1rem;
   text-indent: -1rem;
 }
 
-/* Diplomatic editions */
-ins,
+/* Diplomatic editions*/
 .add {
-  color:#288828;
+  color: #288828;
   font-style: italic;
 }
 
-del,
 .delete {
   text-decoration: line-through;
-  color: #AA3232;
+  color: #aa3232;
 }
 
-u,
 .underline {
   text-decoration: underline;
 }
-
 
 /*
   Line layouts for prose-poetry and theater
@@ -674,8 +814,6 @@ li.speakerGroup {
   margin-bottom: -1.6em;
 }
 
-/* To add an attribution, make sure to make a line with the attribution class */
-
 li.attribution {
   text-align: right;
   list-style: none;
@@ -694,7 +832,6 @@ li.prose-indent {
   text-indent: 2rem;
 }
 
-/* Posts */
 .post-item {
   padding: 10px 0;
 }
@@ -706,7 +843,7 @@ li.prose-indent {
 .post-list {
   h2,
   h3 {
-    font-family: $main-font;
+    font-family: var(--serif-fonts);
   }
 
   h3.title-text {
@@ -726,108 +863,182 @@ li.prose-indent {
 }
 
 .post-date {
-  font-family: $main-font-sans;
+  font-family: var(--sans-serif-fonts);
   display: flex;
   flex-shrink: 0;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .post-excerpt {
-  font-family: $main-font;
+  font-family: var(--serif-fonts);
   font-size: 1rem;
   line-height: 1.5rem;
   margin: 0;
 }
 
-
-/*
-  Themes
-
-  Applies custom color schemes by adding the appropriate class to the `body`. Based on colors from
-  Base16: http://chriskempson.com/projects/base16/
-*/
-
-/* Red */
-.theme-base-red .sidebar,
-.theme-base-red .sidebar-toggle:active,
-.theme-base-red #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #ac4142;
+[data-theme="dark"] .light-background {
+  background-color: var(--image-light-background-color);
+  padding: 5px;
 }
 
-.theme-base-red .container a,
-.theme-base-red .sidebar-toggle,
-.theme-base-red .related-posts li a:hover {
-  color: #ac4142;
+@media (prefers-color-scheme: dark) {
+  .light-background {
+    background-color: var(--image-light-background-color);
+    padding: 5px;
+  }
 }
 
-/* Orange */
-.theme-base-orange .sidebar,
-.theme-base-orange .sidebar-toggle:active {
-  background-color: #d28445;
+.blog-images-horizontal,
+.blog-images-single {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  .image,
+  .image img {
+    object-fit: contain;
+    max-height: 300px;
+  }
+
+  .image:not(:first-child) {
+    margin-left: 10px;
+  }
 }
 
-.theme-base-orange .container a,
-.theme-base-orange .sidebar-toggle,
-.theme-base-orange .related-posts li a:hover {
-  color: #d28445;
+.blog-images-horizontal.wide,
+.blog-images-single.wide {
+  flex-direction: column;
+
+  .image:not(:first-child) {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
 }
 
-/* Green */
-.theme-base-green .sidebar,
-.theme-base-green .sidebar-toggle:active {
-  background-color: #90a959;
+.blog-images-horizontal.tall,
+.blog-images-single.tall {
+  .image,
+  .image img {
+    max-height: 500px;
+  }
 }
 
-.theme-base-green .container a,
-.theme-base-green .sidebar-toggle,
-.theme-base-green .related-posts li a:hover {
-  color: #90a959;
+.blog-images-single.full-width {
+  .image,
+  .image img {
+    width: 100%;
+    max-height: none;
+  }
 }
 
-/* Cyan */
-.theme-base-cyan .sidebar,
-.theme-base-cyan .sidebar-toggle:active {
-  background-color: #016bb1;
+.blog-images-float {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+
+  .image {
+    max-width: 300px;
+
+    img {
+      max-height: 300px;
+    }
+  }
 }
 
-.theme-base-cyan .container a,
-.theme-base-cyan .sidebar-toggle,
-.theme-base-cyan .related-posts li a:hover {
-  color: #016bb1;
+@media (max-width: 480px) {
+  .blog-images-float {
+    float: none;
+    margin-left: 0;
+
+    .image,
+    .image img {
+      max-width: none;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
 }
 
-/* Blue */
-.theme-base-blue .sidebar,
-.theme-base-blue .sidebar-toggle:active {
-  background-color: #016bb1;
+.with-caption {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    margin-bottom: 0.5rem;
+  }
+
+  .caption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    padding: 5px 0;
+  }
 }
 
-.theme-base-blue .container a,
-.theme-base-blue .sidebar-toggle,
-.theme-base-blue .related-posts li a:hover {
-  color: #016bb1;
+.disclosure {
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 3rem;
 }
 
-/* Magenta */
-.theme-base-magenta .sidebar,
-.theme-base-magenta .sidebar-toggle:active {
-  background-color: #aa759f;
+.copyright-footer {
+  font-size: 0.8em;
+  line-height: 1.2em;
+  padding: 1em;
+  height: auto;
 }
 
-.theme-base-magenta .container a,
-.theme-base-magenta .sidebar-toggle,
-.theme-base-magenta .related-posts li a:hover {
-  color: #aa759f;
+.inserted-note {
+  font-size: 80%;
+  color: var(--note-text-color);
+
+  a {
+    color: var(--note-text-color);
+
+    &:hover {
+      color: var(--note-text-hover-color);
+    }
+  }
 }
 
-/* Brown */
-.theme-base-brown .sidebar,
-.theme-base-brown .sidebar-toggle:active {
-  background-color: #8f5536;
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.theme-base-brown .container a,
-.theme-base-brown .sidebar-toggle,
-.theme-base-brown .related-posts li a:hover {
-  color: #8f5536;
+.margin-0-auto {
+  margin: 0 auto;
+}
+
+.help-text {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--note-text-color);
+
+  a:hover {
+    color: var(--note-text-hover-color);
+  }
+}
+
+.timestamp,
+.timestamp a {
+  font-size: 0.8rem;
+  color: var(--timestamp-color);
+  text-decoration: none;
+}
+
+.twitter-tweet {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  font-size: smaller;
+}
+
+.copyright-footer {
+  text-align: center;
 }
