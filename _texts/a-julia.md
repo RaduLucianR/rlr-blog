@@ -1,9 +1,9 @@
 ---
-layout: poem
-title: A Julia de Burgos
-author: Julia de Burgos
-editor: Alex Gil
-source: Ciudad Seva
+layout: narrative
+title: "The use of &quot;Assume Good Faith&quot; to shut down discussions about sexism on Wikipedia"
+author: Molly White
+publication-date: 2019-04-16
+custom_excerpt: "Sexism is a systemic issue on Wikipedia, but the &quot;Assume Good Faith&quot; guideline is too often used to shut down any discussion of specifics."
 ---
 
 - Ya las gentes murmuran que yo soy tu enemiga
